@@ -5,6 +5,15 @@
 		"ghcr.io/devcontainers/features/node:1": {
 			"version": "none"
 		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.vscode-pull-request-github",
+				"eamodio.gitlens",
+				"ms-azuretools.vscode-docker"
+			]
+		}
 	}
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
