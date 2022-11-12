@@ -14,14 +14,20 @@ have poetry, VS Code devcontainers, and various GitHub actions ready to use.
 You are free to use template.py as a basis for your own projects without any
 conditions.  See the [LICENSE] file for details.
 
+## Prerequisites
+
+1. VS Code with "Remote Development" installed
+
 ## How to use this template
 
 1. Visit [the repository][repository]
 1. Click "Use this template"
 1. Follow the GitHub Docs to [Create a repo][create a repo]
-1. Replace all occurrences of PROJECT_NAME with the name of your new project
-1. Replace LICENSE with your own LICENSE
-1. Replace this README.md with your own project overview
+1. Open VS Code
+1. Open the command prompt (ctrl+shift+p)
+1. Type "clone repository in container" and hit return
+1. Input the GitHub URL of your new repository
+1. In the resulting terminal (ctrl+\`), run: `poetry run template.py`
 
 ## Documentation
 
