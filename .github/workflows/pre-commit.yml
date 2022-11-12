@@ -20,7 +20,7 @@ jobs:
           - "3.9"  # EOL 2025-10
           - "3.10"  # EOL 2026-10
           - "3.11"  # EOL 2027-10
-        experimental: false
+        experimental: [false]
         include:
           - python-version: 3.x
             experimental: true
@@ -30,17 +30,13 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: cache poetry
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/poetry
-          key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
-          restore-keys: ${{ runn.os }}-poetry-
       - name: cache pre-commit
         uses: actions/cache@v2
         with:
           path: ~/.cache/pre-commit
           key:  ${{ runner.os }}-pre-commit-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: ${{ runner.os }}-pre-commit-
+      - name: install pre-commit
+        run: pip --no-python-version-warning install pre-commit
       - name: run pre-commit
-        run: poetry run pre-commit run --all-files
+        run: pre-commit run --all-files
