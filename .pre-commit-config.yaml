@@ -68,10 +68,6 @@ repos:
     rev: v1.4.0
     hooks:
       - id: yesqa
-  - repo: https://github.com/asottile/dead
-    rev: v1.5.0
-    hooks:
-      - id: dead
   - repo: https://github.com/jendrikseipp/vulture
     rev: v2.6
     hooks:
