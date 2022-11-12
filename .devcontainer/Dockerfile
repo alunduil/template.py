@@ -13,4 +13,4 @@ RUN su vscode -c "curl -sSL https://install.python-poetry.org | python3 -"
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+#     && apt-get -y install --no-install-recommends hadolint

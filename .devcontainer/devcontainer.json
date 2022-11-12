@@ -1,5 +1,5 @@
 {
-	"name": "PROJECT_NAME",
+	"name": "template.py",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
@@ -20,7 +20,8 @@
 				"GitHub.vscode-pull-request-github",
 				"eamodio.gitlens",
 				"ms-azuretools.vscode-docker",
-				"DavidAnson.vscode-markdownlint"
+				"DavidAnson.vscode-markdownlint",
+				"tamasfe.even-better-toml"
 			]
 		}
 	},
@@ -29,7 +30,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "poetry install",
+	"postCreateCommand": "poetry install && poetry run pre-commit install",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
