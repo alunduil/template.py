@@ -1,7 +1,7 @@
-# This workflow runs pre-commit against the repository.
+# This workflow runs poetry against the repository.
 #
 # You can adjust the behavior by modifying this file.
-name: Run pre-commit
+name: Run poetry
 
 on: [pull_request]
 
@@ -9,13 +9,12 @@ permissions:
   contents: read
 
 jobs:
-  pre-commit:
+  poetry:
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
         python-version:
-          # TODO When 3.7 is removed add dead to pre-commit-config.yaml
           - "3.7"  # EOL 2023-06-27
           - "3.8"  # EOL 2024-10
           - "3.9"  # EOL 2025-10
@@ -42,6 +41,6 @@ jobs:
       - name: poetry build
         run: |
           poetry build
-          tar -zvtf dist/template-py-*.tar.gz | grep template
+          tar -zvtf dist/template_py-*.tar.gz | grep template
       - name: poetry check
         run: poetry check
