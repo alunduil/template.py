@@ -1,15 +1,15 @@
-# This workflow runs poetry against the repository.
+# This workflow runs pytest against the repository.
 #
 # You can adjust the behavior by modifying this file.
-name: Run poetry
+name: Run pytest
 
-on: [pull_request]
+on: [push, pull_request]
 
 permissions:
   contents: read
 
 jobs:
-  poetry:
+  pytest:
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental }}
     strategy:
@@ -33,9 +33,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: poetry
-      - name: poetry build
+      - name: poetry install
+        run: poetry install
+      - name: poetry run pytest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          poetry build
-          tar -zvtf dist/template_py-*.tar.gz | grep template
-      - name: poetry check
-        run: poetry check
+          poetry run pytest
+          poetry run coveralls --service=github
