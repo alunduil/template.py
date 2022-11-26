@@ -5,8 +5,8 @@ import pathlib
 import shutil
 import tempfile
 
-import template_py.configuration as _configuration
-import template_py.licence as _licence
+import templatise.configuration as _configuration
+import templatise.licence as _licence
 
 
 def convert_file(

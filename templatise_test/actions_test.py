@@ -1,12 +1,14 @@
 """Tests for actions."""
 import pathlib
+import shutil
 
 import pytest
 import pytest_golden.plugin
 
-import template_py.actions as sut
-import template_py.configuration as _configuration
-import template_py.project_name as _project_name
+import templatise.actions as sut
+import templatise.configuration as _configuration
+import templatise.git as _git
+import templatise.project_name as _project_name
 
 
 @pytest.mark.golden_test("actions_test_fixtures/convert_file_*.yaml")  # type: ignore[misc]
@@ -21,7 +23,7 @@ def test_golden_convert_file(
     )
     assert isinstance(configuration.project_name, _project_name.ProjectName)  # nosec
     file_path = project_path / "sentinel"
-    file_path.write_text(golden["input"])
+    shutil.copy(_git.project_root() / golden["input_path"], file_path)
     sut.convert_file(configuration, file_path)
     assert file_path.read_text() == golden.out["output"]  # nosec
 
@@ -38,8 +40,8 @@ class TestConvertModule:
             email="unroutable",
             licence="unlicense",
         )
-        sut.convert_module(configuration, project_path / "template_py")
-        assert not (project_path / "template_py").exists()  # nosec
+        sut.convert_module(configuration, project_path / "templatise")
+        assert not (project_path / "templatise").exists()  # nosec
         assert (project_path / "sentinel").exists()  # nosec
         assert (project_path / "sentinel" / "__init__.py").exists()  # nosec
 
@@ -52,7 +54,7 @@ class TestConvertModule:
             email="unroutable",
             licence="unlicense",
         )
-        sut.convert_module(configuration, project_path / "template_py_test")
-        assert not (project_path / "template_py_test").exists()  # nosec
+        sut.convert_module(configuration, project_path / "templatise_test")
+        assert not (project_path / "templatise_test").exists()  # nosec
         assert (project_path / "sentinel_test").exists()  # nosec
         assert (project_path / "sentinel_test" / "__init__.py").exists()  # nosec

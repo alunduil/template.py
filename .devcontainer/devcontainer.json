@@ -20,7 +20,7 @@
 				"python.pythonPath": "${workspaceFolder}/.venv/bin/python",
 				"python.linting.pylintPath": "${workspaceFolder}/.venv/bin/pylint",
 				"python.testing.pytestArgs": [
-					"template_py_test"
+					"templatise_test"
 				],
 				"python.testing.unittestEnabled": false,
 				"python.testing.pytestEnabled": true

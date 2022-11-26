@@ -3,7 +3,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "template_py"
+name = "templatise"
 version = "0.1.0"
 description = "You can use template.py to create a new GitHub repository."
 authors = ["Alex Brandt <alunduil@gmail.com>"]
@@ -48,12 +48,12 @@ pytest-xdist = "^3.0.2"
 psutil = "^5.9.4"
 
 [tool.poetry.scripts]
-initialise = 'template_py.initialise:main'
+initialise = 'templatise.initialise:main'
 
 [tool.pytest.ini_options]
-addopts = "--doctest-modules --cov=template_py --cov-report=term-missing -n logical"
-testpaths = ["template_py_test"]
+addopts = "--doctest-modules --cov=templatise --cov-report=term-missing -n logical"
+testpaths = ["templatise_test"]
 enable_assertion_pass_hook = true
 
 [tool.vulture]
-paths = ["template_py", "template_py_test"]
+paths = ["templatise", "templatise_test"]

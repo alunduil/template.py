@@ -6,7 +6,7 @@ import typing
 
 import toml
 
-import template_py.project_name as _project_name
+import templatise.project_name as _project_name
 
 
 @dataclasses.dataclass
@@ -48,7 +48,7 @@ class Configuration:
         self.licence = licence
 
         # Create the template.
-        project_name = _project_name.ProjectName("template.py")
+        project_name = _project_name.ProjectName("template.py", "templatise")
 
         if self.project_name == project_name:
             # Short-circuit the recursion by ensuring we only have one level of

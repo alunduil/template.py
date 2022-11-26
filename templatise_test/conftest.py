@@ -5,7 +5,7 @@ import shutil
 
 import pytest
 
-import template_py.git as _git
+import templatise.git as _git
 
 _LOGGER = logging.getLogger(__name__)
 
