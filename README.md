@@ -9,6 +9,11 @@ By Alex Brandt <alunduil@gmail.com>
 You can use template.py to create a new GitHub repository.  The repository will
 have poetry, VS Code devcontainers, and various GitHub actions ready to use.
 
+template.py is related to [Cookiecutter] because both are templates for
+bootstrapping projects.  template.py allows you to have a full development
+environment with only VS Code and it's "Remote Development" plugin.
+[Cookiecutter] expects you to re-use your development environment for multiple
+projects.
 ## Terms of use
 
 You are free to use template.py as a basis for your own projects without any
@@ -49,3 +54,4 @@ conditions.  See the [LICENSE] file for details.
 [LICENSE]: ./LICENSE
 [pull requests]: https://github.com/alunduil/template.py/pulls
 [repository]: https://github.com/alunduil/template.py
+[Cookiecutter]: https://github.com/cookiecutter/cookiecutter
