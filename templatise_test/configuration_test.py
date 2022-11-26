@@ -2,8 +2,8 @@
 
 import pathlib
 
-import template_py.configuration as sut
-import template_py.project_name as _project_name
+import templatise.configuration as sut
+import templatise.project_name as _project_name
 
 
 class TestConfigurationPostInit:  # pylint: disable=R0903

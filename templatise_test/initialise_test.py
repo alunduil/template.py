@@ -3,7 +3,7 @@ import pathlib
 
 import click.testing
 
-import template_py.initialise as sut
+import templatise.initialise as sut
 
 
 class TestMain:

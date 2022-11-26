@@ -4,7 +4,7 @@ import re
 import hypothesis
 import hypothesis.strategies
 
-import template_py.project_name as sut
+import templatise.project_name as sut
 
 
 def project_names() -> hypothesis.strategies.SearchStrategy[sut.ProjectName]:

@@ -8,10 +8,10 @@ import typing
 import click
 import click_log
 
-import template_py.actions as _actions
-import template_py.configuration as _configuration
-import template_py.git as _git
-import template_py.project_name as _project_name
+import templatise.actions as _actions
+import templatise.configuration as _configuration
+import templatise.git as _git
+import templatise.project_name as _project_name
 
 _LOGGER = logging.getLogger(__name__)
 click_log.basic_config(_LOGGER)

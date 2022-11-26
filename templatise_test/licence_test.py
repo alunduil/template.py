@@ -6,7 +6,7 @@ import hypothesis.strategies
 import pytest
 import requests
 
-import template_py.licence as sut
+import templatise.licence as sut
 
 
 def licence_responses(

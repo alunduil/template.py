@@ -36,6 +36,6 @@ jobs:
       - name: poetry build
         run: |
           poetry build
-          tar -zvtf dist/template_py-*.tar.gz | grep template
+          tar -zvtf dist/templatise-*.tar.gz | grep templatise
       - name: poetry check
         run: poetry check

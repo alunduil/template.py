@@ -6,6 +6,7 @@ project names).
 
 import dataclasses
 import re
+import typing
 
 
 @dataclasses.dataclass
@@ -19,10 +20,10 @@ class ProjectName:
     original: str
     package: str
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, package_name: typing.Optional[str] = None):
         """Construct a ProjectName."""
         self.original = name
-        self.package = _package_name(name)
+        self.package = _package_name(name) if not package_name else package_name
 
 
 def _package_name(name: str) -> str:
