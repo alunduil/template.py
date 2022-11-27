@@ -11,7 +11,7 @@ output: |
 
   [tool.poetry]
   name = "sentinel"
-  version = "0.1.0"
+  version = "0.2.0"
   description = "You can use sentinel to create a new GitHub repository."
   authors = ["unknown <unroutable>"]
   license = "unlicense"

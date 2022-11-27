@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "templatise"
-version = "0.1.0"
+version = "0.2.0"
 description = "You can use template.py to create a new GitHub repository."
 authors = ["Alex Brandt <alunduil@gmail.com>"]
 license = "unlicense"
