@@ -14,7 +14,7 @@ output: |
 
   [tool.poetry]
   name = "sentinel"
-  version = "0.2.0"
+  version = "0.2.1"
   description = "You can use sentinel to create a new GitHub repository."
   authors = ["unknown <unroutable>"]
   license = "unlicense"
@@ -22,7 +22,7 @@ output: |
   repository = "https://github.com/alunduil/sentinel"
   keywords = ["python", "template", "vscode", "devcontainers"]
   classifiers = [
-      "Development Status :: 1 - Planning",
+      "Development Status :: 3 - Alpha",
       "Environment :: Console",
       "Intended Audience :: Developers",
       "License :: OSI Approved :: The Unlicense (Unlicense)",

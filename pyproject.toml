@@ -7,7 +7,7 @@ profile = "black"
 
 [tool.poetry]
 name = "templatise"
-version = "0.2.0"
+version = "0.2.1"
 description = "You can use template.py to create a new GitHub repository."
 authors = ["Alex Brandt <alunduil@gmail.com>"]
 license = "unlicense"
@@ -15,7 +15,7 @@ readme = "README.md"
 repository = "https://github.com/alunduil/template.py"
 keywords = ["python", "template", "vscode", "devcontainers"]
 classifiers = [
-    "Development Status :: 1 - Planning",
+    "Development Status :: 3 - Alpha",
     "Environment :: Console",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: The Unlicense (Unlicense)",
