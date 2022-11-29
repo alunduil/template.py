@@ -24,6 +24,10 @@ class TestProjectName:
         """Test our handling of the chosen project name."""
         assert sut.ProjectName("template.py").package == "template_py"  # nosec
 
+    def test_hyphenated_name(self) -> None:
+        """Test hyphenated project name."""
+        assert sut.ProjectName("foo-bar").package == "foo_bar"  # nosec
+
     @hypothesis.given(name=project_names())  # type: ignore[misc]
     def test_package(self, name: sut.ProjectName) -> None:
         """Test default constructor."""
