@@ -24,14 +24,12 @@ class TestConfigurationPostInit:  # pylint: disable=R0903
         assert result.author == "unknown"  # nosec
         assert result.email == "unroutable"  # nosec
         assert result.licence == "unlicense"  # nosec
-        assert result._template is not None  # nosec pylint: disable=W0212
+        assert result.template is not None  # nosec pylint: disable=W0212
         assert (  # nosec
-            result.project_path
-            == result._template.project_path  # pylint: disable=W0212
+            result.project_path == result.template.project_path  # pylint: disable=W0212
         )
         assert (  # nosec
-            result.project_name
-            != result._template.project_name  # pylint: disable=W0212
+            result.project_name != result.template.project_name  # pylint: disable=W0212
         )
-        assert result.author != result._template.author  # nosec pylint: disable=W0212
-        assert result.email != result._template.email  # nosec pylint: disable=W0212
+        assert result.author != result.template.author  # nosec pylint: disable=W0212
+        assert result.email != result.template.email  # nosec pylint: disable=W0212

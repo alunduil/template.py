@@ -32,4 +32,8 @@ def convert_licence(
     configuration: _configuration.Configuration, path: pathlib.Path
 ) -> None:
     """Convert licence according to the configuration."""
-    path.write_text(_licence.text(configuration.licence))
+    if (
+        configuration.template is not None
+        and configuration.licence != configuration.template.licence
+    ):
+        path.write_text(_licence.text(configuration.licence))

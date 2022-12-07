@@ -23,7 +23,7 @@ class Configuration:
     author: str
     email: str
     licence: str
-    _template: typing.Optional["Configuration"] = dataclasses.field(init=False)
+    template: typing.Optional["Configuration"] = dataclasses.field(init=False)
 
     def __init__(  # pylint: disable=R0913
         self,
@@ -66,7 +66,7 @@ class Configuration:
 
         author, email = pyproject["tool"]["poetry"]["authors"][0].split(" <")
 
-        self._template = Configuration(
+        self.template = Configuration(
             project_path=self.project_path,
             project_name=project_name,
             author=author,
@@ -76,18 +76,18 @@ class Configuration:
 
     def sub(self, text: str) -> str:
         """Substitute template parameters in given string."""
-        if self._template is None:
+        if self.template is None:
             raise NotImplementedError(
                 "sub is only available on Configurations with an internal template."
             )
         result = text
         result = result.replace(
-            self._template.project_name.original, self.project_name.original
+            self.template.project_name.original, self.project_name.original
         )
         result = result.replace(
-            self._template.project_name.package, self.project_name.package
+            self.template.project_name.package, self.project_name.package
         )
-        result = result.replace(self._template.author, self.author)
-        result = result.replace(self._template.email, self.email)
-        result = result.replace(self._template.licence, self.licence)
+        result = result.replace(self.template.author, self.author)
+        result = result.replace(self.template.email, self.email)
+        result = result.replace(self.template.licence, self.licence)
         return result
