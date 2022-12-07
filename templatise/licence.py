@@ -1,9 +1,13 @@
 """Licence interactions."""
 import datetime
+import logging
 import typing
 
 import bs4
 import requests
+import retry
+
+_LOGGER = logging.getLogger(__name__)
 
 
 class InvalidError(RuntimeError):
@@ -23,6 +27,7 @@ def text(name: str) -> str:
     return maybe_text
 
 
+@retry.retry(UnavailableError, tries=2, logger=_LOGGER)
 def _download(name: str) -> requests.Response:
     url = f"https://opensource.org/licenses/{name}"
     response = requests.get(url, timeout=datetime.timedelta(minutes=1).total_seconds())
