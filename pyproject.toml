@@ -7,7 +7,7 @@ profile = "black"
 
 [tool.poetry]
 name = "templatise"
-version = "0.2.1"
+version = "0.3.0"
 description = "You can use template.py to create a new GitHub repository."
 authors = ["Alex Brandt <alunduil@gmail.com>"]
 license = "unlicense"
@@ -47,8 +47,7 @@ pytest = "^7.2.0"
 pytest-cov = "^4.0.0"
 coveralls = "^3.3.1"
 pytest-golden = "^0.2.2"
-pytest-xdist = "^3.0.2"
-psutil = "^5.9.4"
+pytest-xdist = {extras = ["psutil"], version = "^3.1.0"}
 
 [tool.poetry.scripts]
 initialise = 'templatise.initialise:main'

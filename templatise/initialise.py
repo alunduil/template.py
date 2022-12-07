@@ -1,9 +1,6 @@
 """Main module for initialise."""
-import concurrent.futures
-import datetime
 import logging
 import pathlib
-import typing
 
 import click
 import click_log
@@ -70,21 +67,12 @@ click_log.basic_config(_LOGGER)
     help="Project path.  Only used for testing.",
     hidden=True,
 )
-@click.option(  # type: ignore[misc]
-    "--timeout",
-    type=click.FloatRange(min=0.0),
-    required=True,
-    default=datetime.timedelta(minutes=10).total_seconds(),
-    show_default=True,
-    help="Timeout in seconds for project initialisation activities.  Does not include any time waiting for prompts.",
-)
 def main(  # pylint: disable=R0913
     project_name: _project_name.ProjectName,
     author: str,
     email: str,
     licence: str,
     path: pathlib.Path,
-    timeout: float,
 ) -> None:
     """Initialise a new project using the current checked out repository.
 
@@ -101,7 +89,7 @@ def main(  # pylint: disable=R0913
 
     files = [
         path / ".devcontainer" / "devcontainer.json",
-        path / ".gihub" / "workflows" / "poetry.yml",
+        path / ".github" / "workflows" / "poetry.yml",
         path / "pyproject.toml",
     ]
     modules = [
@@ -109,21 +97,10 @@ def main(  # pylint: disable=R0913
         path / f"{configuration.project_name.package}_test",
     ]
 
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures: typing.List[
-            concurrent.futures.Future[None]  # pylint: disable=E1136
-        ] = []
-        futures.extend(
-            executor.submit(_actions.convert_file, configuration, file)
-            for file in files
-        )
-        futures.extend(
-            executor.submit(_actions.convert_module, configuration, module)
-            for module in modules
-        )
-        futures.append(
-            executor.submit(_actions.convert_licence, configuration, path / "LICENSE")
-        )
-        concurrent.futures.wait(
-            futures, timeout=timeout, return_when=concurrent.futures.FIRST_EXCEPTION
-        )
+    for file in files:
+        _actions.convert_file(configuration, file)
+
+    for module in modules:
+        _actions.convert_module(configuration, module)
+
+    _actions.convert_licence(configuration, path / "LICENSE")
