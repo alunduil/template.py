@@ -48,7 +48,7 @@ repos:
     rev: v0.990
     hooks:
       - id: mypy
-        additional_dependencies: [types-requests, types-toml]
+        additional_dependencies: [types-requests, types-toml, types-retry]
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.9.0
     hooks:

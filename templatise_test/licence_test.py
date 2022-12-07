@@ -62,4 +62,4 @@ class TestLicenceText:
         ) as mock_requests_get:
             with pytest.raises(sut.UnavailableError):
                 sut.text(name="ignoed")  # pylint: disable=W0212
-            mock_requests_get.assert_called_once()
+            assert mock_requests_get.call_count == 2  # nosec
