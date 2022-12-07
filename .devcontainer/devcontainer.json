@@ -20,7 +20,7 @@
 				"python.pythonPath": "${workspaceFolder}/.venv/bin/python",
 				"python.linting.pylintPath": "${workspaceFolder}/.venv/bin/pylint",
 				"python.testing.pytestArgs": [
-					"templatise_test"
+					"--no-cov", "templatise_test"
 				],
 				"python.testing.unittestEnabled": false,
 				"python.testing.pytestEnabled": true

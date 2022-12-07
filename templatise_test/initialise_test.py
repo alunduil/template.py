@@ -1,9 +1,12 @@
 """Test Initialise Command."""
+import logging
 import pathlib
 
 import click.testing
 
 import templatise.initialise as sut
+
+_LOGGER = logging.getLogger(__name__)
 
 
 class TestMain:

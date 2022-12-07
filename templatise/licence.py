@@ -36,5 +36,5 @@ def _download(name: str) -> requests.Response:
 
 def _extract(html: str) -> typing.Optional[str]:
     soup = bs4.BeautifulSoup(html, features="html.parser")
-    result = soup.find(id="LicenseTest")
+    result = soup.find(id="LicenseText")
     return result.text if result is not None else None
