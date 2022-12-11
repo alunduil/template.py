@@ -1,6 +1,8 @@
 """Test Initialise Command."""
 import logging
 import pathlib
+import subprocess  # nosec
+import typing
 
 import click.testing
 
@@ -24,7 +26,14 @@ class TestMain:
 
         result = runner.invoke(
             cli=sut.main,
-            args=["--project-name", "sentinel", "--path", str(project_path)],
+            args=[
+                "--project-name",
+                "sentinel",
+                "--path",
+                str(project_path),
+                "--verbosity",
+                "DEBUG",
+            ],
         )
 
         _LOGGER.debug("result.output:\n%s", result.output)
@@ -32,3 +41,33 @@ class TestMain:
         _LOGGER.debug("result.exc_info: %s", result.exc_info)
 
         assert result.exit_code == 0  # nosec
+
+        assert not (project_path / "templatise").exists()  # nosec
+        assert not (project_path / "templatise_test").exists()  # nosec
+
+        assert (project_path / "sentinel").exists()  # nosec
+        assert (project_path / "sentinel_test").exists()  # nosec
+
+        grep = _grep(
+            patterns=["template.py", "template_py"],
+            paths=[project_path],
+            options=["--invert-match", "--recursive", "--quiet"],
+        )
+        assert grep.returncode == 0  # nosec
+
+
+def _grep(
+    patterns: typing.List[str],
+    paths: typing.List[pathlib.Path],
+    options: typing.Optional[typing.List[str]] = None,
+) -> subprocess.CompletedProcess[str]:
+    if not options:
+        options = []
+
+    result = subprocess.run(  # pylint: disable=W1510 # nosec
+        ["grep", *options, *[f"-e {pattern}" for pattern in patterns], *paths],
+        capture_output=True,
+        text=True,
+    )
+
+    return result
