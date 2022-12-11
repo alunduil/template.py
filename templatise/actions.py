@@ -23,7 +23,7 @@ def convert_module(
 ) -> None:
     """Convert modules according to the configuration."""
     result = path.parent / configuration.sub(path.name) / "__init__.py"
-    result.parent.mkdir()
+    result.parent.mkdir(parents=True)
     result.touch()
     shutil.rmtree(path)
 

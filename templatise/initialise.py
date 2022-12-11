@@ -86,20 +86,25 @@ def main(  # pylint: disable=R0913
         licence=licence,
     )
 
+    assert configuration.template is not None  # nosec
+
     files = [
         path / ".devcontainer" / "devcontainer.json",
         path / ".github" / "workflows" / "poetry.yml",
         path / "pyproject.toml",
     ]
     modules = [
-        path / configuration.project_name.package,
-        path / f"{configuration.project_name.package}_test",
+        path / configuration.template.project_name.package,
+        path / f"{configuration.template.project_name.package}_test",
     ]
 
     for file in files:
+        _LOGGER.info("convert file %s", file)
         _actions.convert_file(configuration, file)
 
     for module in modules:
+        _LOGGER.info("convert module %s", module)
         _actions.convert_module(configuration, module)
 
+    _LOGGER.info("convert licence")
     _actions.convert_licence(configuration, path / "LICENSE")
