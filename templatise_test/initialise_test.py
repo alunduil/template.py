@@ -27,4 +27,8 @@ class TestMain:
             args=["--project-name", "sentinel", "--path", str(project_path)],
         )
 
+        _LOGGER.debug("result.output:\n%s", result.output)
+        _LOGGER.debug("result.exception: %s", result.exception)
+        _LOGGER.debug("result.exc_info: %s", result.exc_info)
+
         assert result.exit_code == 0  # nosec

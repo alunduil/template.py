@@ -28,21 +28,14 @@ class Configuration:
     def __init__(  # pylint: disable=R0913
         self,
         project_path: pathlib.Path,
-        project_name: typing.Union[_project_name.ProjectName, str],
+        project_name: _project_name.ProjectName,
         author: str,
         email: str,
         licence: str,
     ):
         """Construct a Configuration."""
         self.project_path = project_path
-        if isinstance(project_name, str):
-            self.project_name = _project_name.ProjectName(project_name)
-        elif isinstance(project_name, _project_name.ProjectName):
-            self.project_name = project_name
-        else:
-            raise ValueError(
-                f"project_name must be a ProjectName or str, not {type(project_name)}"
-            )
+        self.project_name = project_name
         self.author = author
         self.email = email
         self.licence = licence

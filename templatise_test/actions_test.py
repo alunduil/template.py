@@ -17,15 +17,20 @@ def test_golden_convert_file(
     golden: pytest_golden.plugin.GoldenTestFixture,
 ) -> None:
     """Test golden convert_file."""
+    golden["configuration"]["project_path"] = project_path
+    golden["configuration"]["project_name"] = _project_name.ProjectName(
+        golden["configuration"]["project_name"]
+    )
     configuration = _configuration.Configuration(
-        project_path=project_path,
         **golden["configuration"],
     )
     assert isinstance(configuration.project_name, _project_name.ProjectName)  # nosec
     file_path = project_path / "sentinel"
     shutil.copy(_git.project_root() / golden["input_path"], file_path)
     sut.convert_file(configuration, file_path)
-    assert file_path.read_text() == golden.out["output"]  # nosec
+    result = file_path.read_text()
+    assert result, f"convert_file({golden['input_path']}) is empty."  # nosec
+    assert result == golden.out["output"]  # nosec
 
 
 class TestConvertModule:

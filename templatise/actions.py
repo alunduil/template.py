@@ -1,6 +1,5 @@
 """File Change Actions."""
 
-import os
 import pathlib
 import shutil
 import tempfile
@@ -13,9 +12,10 @@ def convert_file(
     configuration: _configuration.Configuration, path: pathlib.Path
 ) -> None:
     """Convert file according to the configuration."""
-    with tempfile.NamedTemporaryFile("w", delete=False) as result:
+    with tempfile.NamedTemporaryFile("w") as result:
         result.write(configuration.sub(path.read_text()))
-        os.replace(result.name, path)
+        result.flush()
+        shutil.copy(result.name, path)
 
 
 def convert_module(
