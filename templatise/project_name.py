@@ -23,6 +23,7 @@ class ProjectName:
     def __init__(self, name: str, package_name: typing.Optional[str] = None):
         """Construct a ProjectName."""
         self.original = name
+        assert isinstance(name, str)  # nosec
         self.package = _package_name(name) if not package_name else package_name
 
 

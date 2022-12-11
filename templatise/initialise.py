@@ -19,7 +19,6 @@ click_log.basic_config(_LOGGER)
 @click.option(  # type: ignore[misc]
     "-n",
     "--project-name",
-    type=_project_name.ProjectName,
     required=True,
     metavar="NAME",
     envvar="PROJECT_NAME",
@@ -68,7 +67,7 @@ click_log.basic_config(_LOGGER)
     hidden=True,
 )
 def main(  # pylint: disable=R0913
-    project_name: _project_name.ProjectName,
+    project_name: str,
     author: str,
     email: str,
     licence: str,
@@ -81,7 +80,7 @@ def main(  # pylint: disable=R0913
     """
     configuration = _configuration.Configuration(
         project_path=path,
-        project_name=project_name,
+        project_name=_project_name.ProjectName(project_name),
         author=author,
         email=email,
         licence=licence,
