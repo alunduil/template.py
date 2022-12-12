@@ -60,7 +60,7 @@ def _grep(
     patterns: typing.List[str],
     paths: typing.List[pathlib.Path],
     options: typing.Optional[typing.List[str]] = None,
-) -> subprocess.CompletedProcess[str]:
+):  # type: (...) -> subprocess.CompletedProcess[str]
     if not options:
         options = []
 
