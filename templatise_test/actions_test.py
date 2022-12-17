@@ -33,6 +33,28 @@ def test_golden_convert_file(
     assert result == golden.out["output"]  # nosec
 
 
+@pytest.mark.golden_test("actions_test_fixtures/convert_pyproject_toml.yaml")  # type: ignore[misc]
+def test_golden_pyproject_toml(
+    project_path: pathlib.Path,
+    golden: pytest_golden.plugin.GoldenTestFixture,
+) -> None:
+    """Test golden convert_pyproject_toml."""
+    golden["configuration"]["project_path"] = project_path
+    golden["configuration"]["project_name"] = _project_name.ProjectName(
+        golden["configuration"]["project_name"]
+    )
+    configuration = _configuration.Configuration(
+        **golden["configuration"],
+    )
+    assert isinstance(configuration.project_name, _project_name.ProjectName)  # nosec
+    file_path = project_path / "pyproject.toml"
+    shutil.copy(_git.project_root() / golden["input_path"], file_path)
+    sut.convert_pyproject_toml(configuration, file_path)
+    result = file_path.read_text()
+    assert result, f"convert_pyproject_toml({golden['input_path']}) is empty."  # nosec
+    assert result == golden.out["output"]  # nosec
+
+
 class TestConvertModule:
     """Tests for convert_module."""
 
