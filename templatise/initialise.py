@@ -88,19 +88,21 @@ def main(  # pylint: disable=R0913
 
     assert configuration.template is not None  # nosec
 
+    _actions.convert_pyproject_toml(configuration, path / "pyproject.toml")
+
     files = [
         path / ".devcontainer" / "devcontainer.json",
         path / ".github" / "workflows" / "poetry.yml",
-        path / "pyproject.toml",
-    ]
-    modules = [
-        path / configuration.template.project_name.package,
-        path / f"{configuration.template.project_name.package}_test",
     ]
 
     for file in files:
         _LOGGER.info("convert file %s", file)
         _actions.convert_file(configuration, file)
+
+    modules = [
+        path / configuration.template.project_name.package,
+        path / f"{configuration.template.project_name.package}_test",
+    ]
 
     for module in modules:
         _LOGGER.info("convert module %s", module)
