@@ -4,6 +4,7 @@ import unittest.mock
 import hypothesis
 import hypothesis.strategies
 import pytest
+import pytest_golden.plugin
 import requests
 
 import templatise.licence as sut
@@ -63,3 +64,11 @@ class TestLicenceText:
             with pytest.raises(sut.UnavailableError):
                 sut.text(name="ignoed")  # pylint: disable=W0212
             assert mock_requests_get.call_count == 2  # nosec
+
+
+@pytest.mark.golden_test("licence_test_fixtures/licence_*.yaml")  # type: ignore[misc]
+def test_golden_licence_extract(golden: pytest_golden.plugin.GoldenTestFixture) -> None:
+    """Test golden extraction."""
+    result = sut._extract(golden["html"])  # pylint: disable=W0212
+    assert result, "Empty licence text."  # nosec
+    assert result == golden.out["text"]  # nosec

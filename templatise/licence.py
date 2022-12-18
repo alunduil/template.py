@@ -23,7 +23,7 @@ def text(name: str) -> str:
     response = _download(name)
     maybe_text = _extract(response.text)
     if maybe_text is None:
-        raise RuntimeError(f"Could not find id=LicenseText in {response.url}.")
+        raise RuntimeError(f"Could not find licence text in {response.url}.")
     return maybe_text
 
 
@@ -41,5 +41,7 @@ def _download(name: str) -> requests.Response:
 
 def _extract(html: str) -> typing.Optional[str]:
     soup = bs4.BeautifulSoup(html, features="html.parser")
-    result = soup.find(id="LicenseText")
-    return result.text if result is not None else None
+    result = soup.find(name="div", id="LicenseText")
+    if not result:
+        result = soup.find(name="article")
+    return result.text.strip() if result is not None else None

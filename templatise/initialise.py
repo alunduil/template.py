@@ -88,6 +88,10 @@ def main(  # pylint: disable=R0913
 
     assert configuration.template is not None  # nosec
 
+    _LOGGER.info("convert licence")
+    _actions.convert_licence(configuration, path / "LICENSE")
+
+    _LOGGER.info("convert pyproject.toml")
     _actions.convert_pyproject_toml(configuration, path / "pyproject.toml")
 
     files = [
@@ -107,6 +111,3 @@ def main(  # pylint: disable=R0913
     for module in modules:
         _LOGGER.info("convert module %s", module)
         _actions.convert_module(configuration, module)
-
-    _LOGGER.info("convert licence")
-    _actions.convert_licence(configuration, path / "LICENSE")
