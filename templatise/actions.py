@@ -61,7 +61,8 @@ def convert_pyproject_toml(
     ]
 
     pretty = toml_sort.TomlSort(
-        toml.dumps(pyproject_toml), only_sort_tables=True
+        toml.dumps(pyproject_toml),
+        sort_config=toml_sort.tomlsort.SortConfiguration(inline_arrays=True),
     ).sorted()
     pretty = "\n".join(line.rstrip() for line in pretty.splitlines()).rstrip() + "\n"
 
