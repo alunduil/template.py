@@ -941,18 +941,18 @@ files = [
 
 [[package]]
 name = "toml-sort"
-version = "0.22.2"
+version = "0.22.3"
 description = "Toml sorting library"
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "toml_sort-0.22.2-py3-none-any.whl", hash = "sha256:77f7d079439d2776a903bdb2c36438768dfd1ba17e1ca018aadee4f9e680e5f7"},
-    {file = "toml_sort-0.22.2.tar.gz", hash = "sha256:84e4c4e3ca1e747b1cb0a02e092191e4c7cb18c3b1eb412f0004390c21f8cb77"},
+    {file = "toml_sort-0.22.3-py3-none-any.whl", hash = "sha256:a60afbdf8b938a6db0715fc5f74f4807e1648a4a9ad1631ee1c8a9ba67a65cef"},
+    {file = "toml_sort-0.22.3.tar.gz", hash = "sha256:1f5ab268cbb8ecb231c2f30b05efea38a1b41ec2e911204a8bf2148d89ff7866"},
 ]
 
 [package.dependencies]
-tomlkit = ">=0.8.0"
+tomlkit = ">=0.11.2"
 
 [[package]]
 name = "tomli"
