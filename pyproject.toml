@@ -8,7 +8,7 @@ profile = "black"
 [tool.poetry]
 authors = ["Alex Brandt <alunduil@gmail.com>"]
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 5 - Production/Stable",
   "Environment :: Console",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: The Unlicense (Unlicense)",
@@ -29,7 +29,7 @@ license = "unlicense"
 name = "templatise"
 readme = "README.md"
 repository = "https://github.com/alunduil/template.py"
-version = "0.5.0"
+version = "1.0.0"
 
 [tool.poetry.dependencies]
 beautifulsoup4 = "^4.11.1"
