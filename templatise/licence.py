@@ -30,7 +30,9 @@ def text(name: str) -> str:
 @retry.retry(UnavailableError, tries=2, logger=_LOGGER)
 def _download(name: str) -> requests.Response:
     url = f"https://opensource.org/licenses/{name}"
-    response = requests.get(url, timeout=datetime.timedelta(minutes=1).total_seconds())
+    response = requests.get(
+        url, timeout=datetime.timedelta(minutes=1).total_seconds()  # nosec
+    )
     if response.status_code in range(400, 500):
         raise InvalidError(f"Requested {name}, but recieved {response}.")
     if response.status_code in range(500, 600):
