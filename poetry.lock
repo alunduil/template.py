@@ -1049,14 +1049,14 @@ files = [
 
 [[package]]
 name = "toml-sort"
-version = "0.22.3"
+version = "0.23.0"
 description = "Toml sorting library"
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "toml_sort-0.22.3-py3-none-any.whl", hash = "sha256:a60afbdf8b938a6db0715fc5f74f4807e1648a4a9ad1631ee1c8a9ba67a65cef"},
-    {file = "toml_sort-0.22.3.tar.gz", hash = "sha256:1f5ab268cbb8ecb231c2f30b05efea38a1b41ec2e911204a8bf2148d89ff7866"},
+    {file = "toml_sort-0.23.0-py3-none-any.whl", hash = "sha256:7804a341c2c692dd47f3cc35f06b90ee03cbaa1b2e319a83b67d063c07bce8a1"},
+    {file = "toml_sort-0.23.0.tar.gz", hash = "sha256:eba7b27d8c786612877cf2feccdd44c1beb9d8e37d810b4a4fa34426e914e35d"},
 ]
 
 [package.dependencies]
@@ -1264,4 +1264,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7.2"
-content-hash = "08624f2f542c079f4248e7a7205e18d23c5366d506b5efe844b0eb91e85c9403"
+content-hash = "0e983a8cc5cf889bcbfc20e2561692fe75d6e42a060b8ea3f0cdb2e94494579d"
