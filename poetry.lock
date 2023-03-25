@@ -1262,4 +1262,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.7.2"
-content-hash = "4056cfb491a3c1112aa980d56d740079297fd9128fe8378d0efc5115a9609e46"
+content-hash = "39b9a6320fb5cc57cca1e0c9bcecc93c95e109ba94a8291ad4e38c87fa3de452"
