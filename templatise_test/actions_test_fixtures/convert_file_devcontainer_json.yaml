@@ -17,9 +17,6 @@ output: |
   			"VARIANT": "3"
   		}
   	},
-  	"features": {
-  		"git": "os-provided"
-  	 },
   	"customizations": {
   		"vscode": {
   			"settings": {
