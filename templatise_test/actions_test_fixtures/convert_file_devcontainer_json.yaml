@@ -6,15 +6,16 @@ configuration:
 input_path: .devcontainer/devcontainer.json
 output: |
   {
-  	"name": "sentinel.simple",
+  	"name": "sentinel",
   	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 
   	// Features to add to the dev container. More info: https://containers.dev/features.
   	"features": {
+  		"ghcr.io/devcontainers-contrib/features/poetry:2": {},
+  		"ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
   		"ghcr.io/devcontainers/features/git:1": {},
   		"ghcr.io/devcontainers/features/github-cli:1": {},
-  		"ghcr.io/devcontainers/features/python:1": {},
-  		"ghcr.io/devcontainers-contrib/features/poetry:2": {}
+  		"ghcr.io/devcontainers/features/python:1": {}
   	},
 
   	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -29,7 +30,6 @@ output: |
   			"settings": {
   				"python.analysis.typeCheckingMode": "basic",
   				"python.pythonPath": "${workspaceFolder}/.venv/bin/python",
-  				"python.linting.pylintPath": "${workspaceFolder}/.venv/bin/pylint",
   				"python.testing.pytestArgs": [
   					"--no-cov", "sentinel_test"
   				],
@@ -37,10 +37,12 @@ output: |
   				"python.testing.pytestEnabled": true
   			},
   			"extensions": [
-  				"GitHub.vscode-pull-request-github",
-  				"eamodio.gitlens",
-  				"ms-azuretools.vscode-docker",
   				"DavidAnson.vscode-markdownlint",
+  				"eamodio.gitlens",
+  				"GitHub.vscode-pull-request-github",
+  				"ms-azuretools.vscode-docker",
+  				"ms-python.pylint",
+  				"ms-python.python",
   				"tamasfe.even-better-toml"
   			]
   		}
