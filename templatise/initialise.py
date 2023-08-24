@@ -1,6 +1,8 @@
 """Main module for initialise."""
 import logging
+import os.path
 import pathlib
+import urllib.parse
 
 import click
 import click_log
@@ -20,6 +22,9 @@ click_log.basic_config(_LOGGER)
     "-n",
     "--project-name",
     required=True,
+    default=lambda: os.path.basename(
+        urllib.parse.urlparse(_git.config("remote.origin.url")).path
+    ),
     metavar="NAME",
     envvar="PROJECT_NAME",
     show_envvar=True,
