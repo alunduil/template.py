@@ -1,4 +1,6 @@
 """Main module for initialise."""
+import importlib.resources
+import json
 import logging
 import os.path
 import pathlib
@@ -49,10 +51,18 @@ click_log.basic_config(_LOGGER)
 )
 @click.option(  # type: ignore[misc]
     "--licence",
+    type=click.Choice(
+        choices=[
+            str(licence["licenseId"])
+            for licence in json.loads(
+                (importlib.resources.files("templatise") / "licenses.json").read_text()
+            )["licenses"]
+        ]
+    ),
     required=True,
-    default=lambda: "unlicense",
+    default=lambda: "Unlicense",
     prompt=f"Licence; {click.style('use https://choosealicense.com/ to help choose',italic=True)}",
-    show_default="unlicence",
+    show_default="Unlicence",
     help="Licence of the project.",
 )
 @click.option(  # type: ignore[misc]

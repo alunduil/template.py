@@ -17,6 +17,7 @@ repos:
       - id: check-shebang-scripts-are-executable
       - id: check-merge-conflict
       - id: check-vcs-permalinks
+        exclude: licenses\.json
       - id: check-toml
   - repo: https://github.com/psf/black
     rev: 23.3.0
