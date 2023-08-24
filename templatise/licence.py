@@ -1,9 +1,7 @@
 """Licence interactions."""
 import datetime
 import logging
-import typing
 
-import bs4
 import requests
 import retry
 
@@ -18,32 +16,25 @@ class UnavailableError(RuntimeError):
     """Indicates licence information is not available."""
 
 
-def text(name: str) -> str:
+def text(licence_id: str) -> str:
     """Full text for Licence with name."""
-    response = _download(name)
-    maybe_text = _extract(response.text)
-    if maybe_text is None:
-        raise RuntimeError(f"Could not find licence text in {response.url}.")
-    return maybe_text
+    licence_text = _download(licence_id)
+    if licence_text is None:
+        raise RuntimeError(f"Could not find licence text for {licence_id}.")
+    return licence_text
 
 
 @retry.retry(UnavailableError, tries=2, logger=_LOGGER)
-def _download(name: str) -> requests.Response:
-    url = f"https://opensource.org/licenses/{name}"
+def _download(licence_id: str) -> str:
     response = requests.get(
-        url, timeout=datetime.timedelta(minutes=1).total_seconds()  # nosec
+        url=f"https://spdx.org/licenses/{licence_id}.json",
+        timeout=datetime.timedelta(minutes=1).total_seconds(),  # nosec
     )
+
     if response.status_code in range(400, 500):
-        raise InvalidError(f"Requested {name}, but recieved {response}.")
+        raise InvalidError(f"Requested {licence_id}, but recieved {response}.")
+
     if response.status_code in range(500, 600):
-        raise UnavailableError(f"Requested {name}, but received {response}.")
+        raise UnavailableError(f"Requested {licence_id}, but received {response}.")
 
-    return response
-
-
-def _extract(html: str) -> typing.Optional[str]:
-    soup = bs4.BeautifulSoup(html, features="html.parser")
-    result = soup.find(name="div", id="LicenseText")
-    if not result:
-        result = soup.find(name="article")
-    return result.text.strip() if result is not None else None
+    return str(response.json()["licenseText"])
