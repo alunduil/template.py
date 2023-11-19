@@ -61,7 +61,7 @@ click_log.basic_config(_LOGGER)
     ),
     required=True,
     default=lambda: "Unlicense",
-    prompt=f"Licence; {click.style('use https://choosealicense.com/ to help choose',italic=True)}",
+    prompt=f"Licence; {click.style('use https://choosealicense.com/ to help choose', italic=True)}",
     show_default="Unlicence",
     help="Licence of the project.",
 )
