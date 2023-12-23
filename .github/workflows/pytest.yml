@@ -38,6 +38,7 @@ jobs:
         run: |
           poetry run pytest
       - name: poetry run coveralls
+        if: matrix.python-version == '3.x'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
