@@ -1,7 +1,6 @@
 {
 	"name": "template.py",
 	"image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/devcontainers-contrib/features/poetry:2": {},
@@ -10,13 +9,10 @@
 		"ghcr.io/devcontainers/features/github-cli:1": {},
 		"ghcr.io/devcontainers/features/python:1": {}
 	},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "poetry install && vale sync",
-
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
@@ -24,7 +20,8 @@
 				"python.analysis.typeCheckingMode": "basic",
 				"python.pythonPath": "${workspaceFolder}/.venv/bin/python",
 				"python.testing.pytestArgs": [
-					"--no-cov", "templatise_test"
+					"--no-cov",
+					"templatise_test"
 				],
 				"python.testing.unittestEnabled": false,
 				"python.testing.pytestEnabled": true
@@ -38,11 +35,10 @@
 				"ms-python.python",
 				"tamasfe.even-better-toml",
 				"redhat.vscode-yaml",
-				"GitHub.vscode-github-actions",
+				"GitHub.vscode-github-actions"
 			]
 		}
 	},
-
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vscode"
 }
