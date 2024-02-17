@@ -93,3 +93,16 @@ repos:
       - id: check
         args:
           - --detailed
+  - repo: local
+    hooks:
+      - id: vale
+        name: vale
+        entry: vale
+        language: python
+        types: [file, text]
+        exclude_types:
+          - json
+          - toml
+          - yaml
+        additional_dependencies:
+          - vale
