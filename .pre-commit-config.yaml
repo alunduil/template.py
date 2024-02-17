@@ -99,9 +99,12 @@ repos:
         name: vale
         entry: vale
         language: python
+        exclude: ^(LICENSE|.gitignore)$
         types: [file, text]
         exclude_types:
+          - ini
           - json
+          - python
           - toml
           - yaml
         additional_dependencies:

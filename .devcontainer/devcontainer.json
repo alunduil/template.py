@@ -39,7 +39,6 @@
 				"tamasfe.even-better-toml",
 				"redhat.vscode-yaml",
 				"GitHub.vscode-github-actions",
-				"ChrisChinchilla.vale-vscode"
 			]
 		}
 	},
