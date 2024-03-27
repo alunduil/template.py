@@ -1,6 +1,6 @@
-<!-- vale Google.Headings = NO -->
+<!-- vale RedHat.Headings = NO -->
 # template.py
-<!-- vale Google.Headings = YES -->
+<!-- vale RedHat.Headings = YES -->
 
 [Homepage][repository]
 
@@ -8,13 +8,13 @@ By Alex Brandt <alunduil@gmail.com>
 
 ## Description
 
-You can use template.py to create a new GitHub repository. The repository contains
-poetry, VS Code devcontainers, and various GitHub actions ready to use.
+You can use template.py to create a new GitHub repository. The repository has
+poetry, Visual Studio Code devcontainers, and various GitHub actions ready to use.
 
 template.py relates to [Cookiecutter] because both are templates for
 bootstrapping projects.  template.py allows you to have a full development
-environment with only VS Code and it's "Remote Development" plugin.
-[Cookiecutter] expects you to re-use your development environment for multiple
+environment with Visual Studio Code and it's "Remote Development" plugin.
+[Cookiecutter] expects you to re-use your development environment for
 projects.
 
 ## Terms of use
@@ -24,18 +24,18 @@ conditions. See the [LICENSE] file for details.
 
 ## Prerequisites
 
-1. VS Code with "Remote Development" installed
+1. Visual Studio Code with "Remote Development" installed
 
 ## How to use this template
 
 1. Visit [the repository][repository]
 1. Click "Use this template"
 1. Follow the GitHub Docs to [Create a repo][create a repo]
-1. Open VS Code
-1. Open the command prompt with `ctrl+shift+p`
-1. Type "clone repository in container" and hit return
+1. Open Visual Studio Code
+1. Open the shell prompt with `ctrl+shift+p`
+1. Type "clone repository in container" and press return
 1. Input the GitHub URL of your new repository
-1. In the resulting terminal (ctrl+\`), run: `poetry run initialise`
+1. In the resulting terminal (Ctrl+\`), run: `poetry run initialise`
 1. Resolve the generated README issue
 1. Continue working on your awesome project
 
