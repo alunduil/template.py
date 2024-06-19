@@ -25,7 +25,7 @@ conditions. See the [LICENSE] file for details.
 ## Prerequisites
 
 1. Visual Studio Code with "Remote Development" installed
-2. Using SSH instead of HTTPS to connect to Github ([SSH set-up documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh))
+2. Connect to Github using SSH instead of HTTPS (the default method), [see how to setup SSH here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 
 ## How to use this template
 
