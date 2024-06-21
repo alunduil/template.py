@@ -3,7 +3,7 @@ build-backend = "poetry.core.masonry.api"
 requires = ["poetry-core"]
 
 [tool.fawltydeps]
-ignore_unused = ["coveralls", "pytest-cov", "pytest-xdist", "vale"]
+ignore_unused = ["coveralls", "pytest-cov", "pytest-xdist"]
 
 [tool.isort]
 profile = "black"

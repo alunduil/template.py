@@ -40,8 +40,5 @@
 		}
 	},
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "vscode",
-	"remoteEnv": {
-    "PATH": "${containerEnv:PATH}:/workspaces/template.py/.venv/bin/vale"
-	}
+	"remoteUser": "vscode"
 }
