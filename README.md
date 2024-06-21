@@ -25,17 +25,7 @@ conditions. See the [LICENSE] file for details.
 ## Prerequisites
 
 1. Visual Studio Code with "Remote Development" installed
-
-### Sharing Git credentials with your container
-
-Visual Studio Code devcontainers supports using your local Git configuration from inside a container. If this is set-up incorrectly you'll still be able to use devcontainers, but you'll need to add your Git credentials in each devcontainer.
-
-The set-up you need will depend on whether you use HTTPS or SSH to connect with Github:
-
-1. If you're using HTTPS, you need to configure a credential helper in your local OS
-1. If you're using SSH your local keys need to be added in the SSH agent
-
-[See how to set-up your Git credentials for devcontainers here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+2. [Set-up Git credential sharing with your container](GIT-SETUP.md)
 
 ## How to use this template
 
