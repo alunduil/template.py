@@ -10,7 +10,7 @@ output: |
   requires = ["poetry-core"]
 
   [tool.fawltydeps]
-  ignore_unused = ["coveralls", "pytest-cov", "pytest-xdist", "vale"]
+  ignore_unused = ["coveralls", "pytest-cov", "pytest-xdist"]
 
   [tool.isort]
   profile = "black"
@@ -42,7 +42,6 @@ output: |
   pytest = ">=7.2.0,<9.0.0"
   pytest-cov = ">=4,<6"
   pytest-golden = "^0.2.2"
-  vale = "^3.0.7.0"
 
   [tool.poetry.group.test.dependencies.pytest-xdist]
   extras = ["psutil"]
