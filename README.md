@@ -25,7 +25,7 @@ conditions. See the [LICENSE] file for details.
 ## Prerequisites
 
 1. Visual Studio Code with "Remote Development" installed
-2. [Shareable git credentials with the devcontainer](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials)
+1. [Shareable git credentials with the devcontainer](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials)
 
 ## How to use this template
 
