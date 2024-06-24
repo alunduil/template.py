@@ -25,7 +25,7 @@ conditions. See the [LICENSE] file for details.
 ## Prerequisites
 
 1. Visual Studio Code with "Remote Development" installed
-2. [Shareable git credentials with the devcontainer](GIT-SETUP.md)
+2. [Shareable git credentials with the devcontainer](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials)
 
 ## How to use this template
 
@@ -43,7 +43,6 @@ conditions. See the [LICENSE] file for details.
 ## Documentation
 
 * [LICENSE]: The license governing use of template.py
-* [SETUP GIT](docs/HowTos/SetupGit.md): The guide on setting-up your git credentials for devcontainers
 
 ## Getting help
 
