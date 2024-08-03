@@ -4,7 +4,11 @@
 
 ### Added
 
+- Documentation about git authentication
+
 ### Changed
+
+- Move vale tooling to devcontainer configuration
 
 ### Deprecated
 
