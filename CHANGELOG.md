@@ -16,4 +16,6 @@
 
 ### Removed
 
+- vale sync in devcontainer post create command
+
 ### Security
