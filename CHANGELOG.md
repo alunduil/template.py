@@ -2,6 +2,8 @@
 
 ## unreleased
 
+## 2.3.0 -- 2024-08-19
+
 ### Added
 
 - Documentation about git authentication
