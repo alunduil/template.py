@@ -34,7 +34,7 @@ output: |
   requests = "^2.28.1"
   retry = "^0.9.2"
   toml = "^0.10.2"
-  toml-sort = "^0.23.0"
+  toml-sort = ">=0.23,<0.25"
 
   [tool.poetry.group.test.dependencies]
   coveralls = "^3.3.1"
