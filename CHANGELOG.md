@@ -2,6 +2,10 @@
 
 ## unreleased
 
+### Added
+
+- toml-sort-0.24 support
+
 ## 2.3.0 -- 2024-08-19
 
 ### Added
