@@ -1,4 +1,5 @@
 """Licence interactions."""
+
 import datetime
 import logging
 
