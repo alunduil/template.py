@@ -1,4 +1,5 @@
 """Tests for actions."""
+
 import pathlib
 import shutil
 
