@@ -1,4 +1,5 @@
 """Test Initialise Command."""
+
 import logging
 import pathlib
 import subprocess  # nosec
