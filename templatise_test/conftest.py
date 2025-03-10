@@ -1,4 +1,5 @@
 """Fixtures for pytest."""
+
 import logging
 import pathlib
 import shutil

@@ -1,4 +1,5 @@
 """Tests for Licence interactions."""
+
 import unittest.mock
 
 import hypothesis
