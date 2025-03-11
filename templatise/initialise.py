@@ -1,4 +1,5 @@
 """Main module for initialise."""
+
 import importlib.resources
 import json
 import logging
