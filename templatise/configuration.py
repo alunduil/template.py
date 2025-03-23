@@ -25,7 +25,7 @@ class Configuration:
     licence: str
     template: typing.Optional["Configuration"] = dataclasses.field(init=False)
 
-    def __init__(  # pylint: disable=R0913
+    def __init__(  # pylint: disable=R0913,R0917
         self,
         project_path: pathlib.Path,
         project_name: _project_name.ProjectName,
