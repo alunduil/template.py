@@ -15,14 +15,14 @@ import templatise.project_name as _project_name
 
 def _normalize_github_actions_versions(text: str) -> str:
     """Normalize GitHub Actions version tags for version-agnostic comparison.
-    
+
     This replaces version tags like @v3, @v4, @v3.0.1, etc. with @vX
     to allow tests to pass regardless of the specific version used.
     """
     # Pattern to match GitHub Actions version tags: @v followed by digits/dots
     # Examples: @v3, @v4, @v3.0.1, @v4.2.0
-    pattern = r'@v\d+(?:\.\d+)*'
-    return re.sub(pattern, '@vX', text)
+    pattern = r"@v\d+(?:\.\d+)*"
+    return re.sub(pattern, "@vX", text)
 
 
 @pytest.mark.golden_test("actions_test_fixtures/convert_file_*.yaml")  # type: ignore[misc]
@@ -44,14 +44,14 @@ def test_golden_convert_file(
     sut.convert_file(configuration, file_path)
     result = file_path.read_text()
     assert result, f"convert_file({golden['input_path']}) is empty."  # nosec
-    
+
     expected_output = golden.out["output"]
-    
+
     # For GitHub workflow files, normalize action versions to make tests version-agnostic
     if "github/workflows" in golden["input_path"]:
         result = _normalize_github_actions_versions(result)
         expected_output = _normalize_github_actions_versions(expected_output)
-    
+
     assert result == expected_output  # nosec
 
 
