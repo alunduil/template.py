@@ -4,10 +4,13 @@ import logging
 import pathlib
 import subprocess  # nosec
 import typing
+import unittest.mock
 
 import click.testing
+import requests
 
 import templatise.initialise as sut
+import templatise.licence
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -25,17 +28,25 @@ class TestMain:
         """Test the whole process with a copy of the working tree."""
         runner = click.testing.CliRunner()
 
-        result = runner.invoke(
-            cli=sut.main,
-            args=[
-                "--project-name",
-                "sentinel",
-                "--path",
-                str(project_path),
-                "--verbosity",
-                "DEBUG",
-            ],
-        )
+        # Mock the license download to avoid network calls
+        mock_response = requests.Response()
+        mock_response.status_code = 200
+        mock_response._content = b'{"licenseText": "Mock license text for testing"}'
+
+        with unittest.mock.patch.object(
+            templatise.licence.requests, "get", return_value=mock_response
+        ):
+            result = runner.invoke(
+                cli=sut.main,
+                args=[
+                    "--project-name",
+                    "sentinel",
+                    "--path",
+                    str(project_path),
+                    "--verbosity",
+                    "DEBUG",
+                ],
+            )
 
         _LOGGER.debug("result.output:\n%s", result.output)
         _LOGGER.debug("result.exception: %s", result.exception)
